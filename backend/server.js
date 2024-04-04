@@ -1,10 +1,12 @@
-console.log("Welcome tos server");
 const express = require("express");
-const dotenv = require("dotenv").config();
-const port = process.env.PORT || 5000;
-const app = express();
 const { errorHandler } = require("./middleware/errorMiddleware");
+const dotenv = require("dotenv").config();
+const connectDB = require("./connect/database");
+const port = process.env.PORT || 5000;
 
+const app = express();
+
+connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/api/tasks", require("./routes/taskRoutes"));
