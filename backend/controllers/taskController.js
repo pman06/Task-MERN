@@ -1,10 +1,11 @@
 const asyncHandler = require("express-async-handler");
+const Task = require("../models/taskModel");
 
 const getTasks = asyncHandler(async (req, res) => {
-  res.status(200).json({
-    message: "Get all Tasks",
-  });
+  const tasks = await Task.find();
+  res.status(200).json(tasks);
 });
+
 const setTask = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
