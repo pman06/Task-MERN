@@ -1,0 +1,10 @@
+name: Continuous Integration BE
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+    paths:
+      - frontend/**
+      - .github/workflows/**
