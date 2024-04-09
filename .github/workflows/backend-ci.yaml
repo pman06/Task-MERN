@@ -29,6 +29,3 @@ jobs:
       - name: install Dependencies
         run: |
           cd backend && npm i
-
-      - name: Compile code
-        run: npm build
